@@ -1,0 +1,40 @@
+{
+  "format": 1,
+  "packages": {
+    "arch-update-4.4.2-1-x86_64.pkg.tar.zst": {
+      "sha256": "8f8882d90421581164a449d24986754e4401761c3e7a18aeb0808f08405a70bd",
+      "source": "https://github.com/Antiz96/arch-update/archive/v4.4.2.tar.gz",
+      "recipe_commit": "59649fdfb6c297f0501e9d0863b56fb339da3ee4",
+      "reviewed_by": "Larch security review",
+      "reviewed_at": "2026-09-29"
+    },
+    "chwd-1.24.1-1-x86_64.pkg.tar.zst": {
+      "sha256": "25ab6827c1814865dbe619c47de76f0ac2b9305d885c9bb27f5876d05cc9c1f9",
+      "source": "https://github.com/CachyOS/chwd/commit/e99ec339715f2b5724a1adc100ea55b94e59df5a",
+      "recipe_commit": "f6a207ba71e90156e4f3f36614046959ab68b0ee",
+      "reviewed_by": "Larch security review",
+      "reviewed_at": "2026-09-29"
+    },
+    "hyprland-preview-share-picker-git-0.2.1.r16.g0ef9b30-1-x86_64.pkg.tar.zst": {
+      "sha256": "2653783ea98106bf916f773546c8e28fe1936260203cbbd6188034f13485ca55",
+      "source": "https://github.com/WhySoBad/hyprland-preview-share-picker/commit/0ef9b302aee716f36ea19e33ff3cc457d8c075a8",
+      "recipe_commit": "78575c286f6cadc1efaa1ef633ce839d43033160",
+      "reviewed_by": "Larch security review",
+      "reviewed_at": "2026-09-29"
+    },
+    "hyprlang2lua-0.7.1-1-x86_64.pkg.tar.zst": {
+      "sha256": "e53c81fba26bca489534f3270b30e69a84fd4daab23d7936865ddfca51eac378",
+      "source": "https://github.com/EIonTusk/hyprlang2lua/archive/refs/tags/v0.7.1.tar.gz",
+      "recipe_commit": "9b97aa4aa149432cc3cb0eb37652b0304c8f5258",
+      "reviewed_by": "Larch security review",
+      "reviewed_at": "2026-09-29"
+    },
+    "paru-2.1.0-2-x86_64.pkg.tar.zst": {
+      "sha256": "3eebdc30d771426508605fbb6083f64daa49094ef8a3e91109d6838fbc07eb77",
+      "source": "https://github.com/Morganamilo/paru/archive/v2.1.0.tar.gz",
+      "recipe_commit": "59649fdfb6c297f0501e9d0863b56fb339da3ee4",
+      "reviewed_by": "Larch security review",
+      "reviewed_at": "2026-09-29"
+    }
+  }
+}
