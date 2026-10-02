@@ -1,0 +1,37 @@
+# Contributor: Ondřej Šponar
+# Maintainer: Stefan Husmann <stefan-husmann@t-online.de>
+# Larch: the AUR recipe (adc286e, 2023-04-12) built whatever the default branch
+# held; pinned here to googlefonts/lexend 7894f02b (2023-03-02), the last
+# commit, reviewed 2026-09-30. Nothing else changed.
+
+pkgname=lexend-fonts-git
+pkgver=r114.7894f02
+pkgrel=2
+epoch=1
+pkgdesc='Lexend is a variable typeface designed to improve reading fluency'
+url="https://lexend.com"
+arch=(any)
+license=(custom:OFL-1.1)
+makedepends=('git')
+conflicts=('lexend-fonts')
+provides=('lexend-fonts')
+source=('lexend-fonts-git::git+https://github.com/googlefonts/lexend#commit=7894f02b2e7eabc48595f1d4eff3b17b48c6e651')
+sha256sums=('SKIP')
+
+pkgver() {
+  cd $pkgname
+  printf "r%s.%s" $(git rev-list --count HEAD) $(git rev-parse --short HEAD)
+}
+
+# If you want to build the fonts yourself, install gftools from AUR
+# and uncomment the build function. But be aware: gftools is not a cheap makedep.
+
+#build() {
+#  cd $pkgname/sources
+#  . ./build.sh
+#}
+  
+package() {
+  find . -name "*.ttf" | xargs install -Dm644 -t "$pkgdir/usr/share/fonts/TTF" 
+  install -Dm644 $pkgname/OFL.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

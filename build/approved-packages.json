@@ -36,6 +36,468 @@
       "reviewed_by": "Larch security review",
       "reviewed_at": "2026-09-29"
     },
+    "caelestia-cli-1.1.3-1-any.pkg.tar.zst": {
+      "sha256": "647bd601cffd735abfd469b8aa7e5fa443b6a5d8e557c777fdc65fec030ec6b3",
+      "source": "https://github.com/caelestia-dots/cli/releases/download/v1.1.3/caelestia-1.1.3.tar.gz",
+      "recipe_commit": "318a0024da34de008aa43ffe045ddeb6b6d77000",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-29"
+    },
+    "caelestia-shell-2.5.0-1.1-x86_64.pkg.tar.zst": {
+      "sha256": "c08acc6723cc42cac3af54728357f37b51381af366040546b2fd3a230a3f51cd",
+      "source": "https://github.com/caelestia-dots/shell/releases/download/v2.5.0/caelestia-shell-v2.5.0.tar.gz",
+      "recipe_commit": "4a78c687bdf0f897321b3d13702d2e38d966977a",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-29"
+    },
+    "eww-0.6.0-1-x86_64.pkg.tar.zst": {
+      "sha256": "bccd75e02fd91d5fb10449960a73427dcfff5d562a9e721d10ac6fcbdf31e004",
+      "source": "https://github.com/elkowar/eww/commit/d87c2fdbfdc012e76d229e4e9ea3325bc0f23e89",
+      "recipe_commit": "318a0024da34de008aa43ffe045ddeb6b6d77000",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-29"
+    },
+    "libcava-1.0.0-1-x86_64.pkg.tar.zst": {
+      "sha256": "3e92f3c18effbb9cce96a6ee13221fa3325b04f0b85648e6dc7912632e90fc5f",
+      "source": "https://github.com/LukashonakV/cava/archive/1.0.0.tar.gz",
+      "recipe_commit": "318a0024da34de008aa43ffe045ddeb6b6d77000",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-29"
+    },
+    "python-materialyoucolor-3.0.2-1-x86_64.pkg.tar.zst": {
+      "sha256": "1ea9d34231fddae35163488d859b33841b5aea09bf79ccc525ded946c9693008",
+      "source": "https://github.com/T-Dynamos/materialyoucolor-python/archive/v3.0.2.tar.gz",
+      "recipe_commit": "318a0024da34de008aa43ffe045ddeb6b6d77000",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-29"
+    },
+    "ttf-rubik-vf-2.3.0-3-any.pkg.tar.zst": {
+      "sha256": "394f6b0889b7744007daf4fc515e2b16092a4d50dc260b98af687d7be115022c",
+      "source": "https://github.com/googlefonts/rubik/commit/e337a5f69a9bea30e58d05bd40184d79cc099628",
+      "recipe_commit": "318a0024da34de008aa43ffe045ddeb6b6d77000",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-29"
+    },
+    "wlogout-1.2.2-0-x86_64.pkg.tar.zst": {
+      "sha256": "0c25d965e8825cbf96b084814c774d2643ac35bae9606456b10c6bf31be86990",
+      "source": "https://github.com/ArtsyMacaw/wlogout/releases/download/1.2.2/wlogout.tar.gz",
+      "recipe_commit": "318a0024da34de008aa43ffe045ddeb6b6d77000",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-29"
+    },
+    "qt6-m3shapes-git-r50.8a6fe89-1-x86_64.pkg.tar.zst": {
+      "sha256": "0d5a8577cea9160a4414ae92216608a676e8d5ff0160800cf1b3a68153f425ce",
+      "source": "https://github.com/soramanew/m3shapes/commit/8a6fe8961749887d677700b6508e0c9249968b7e",
+      "recipe_commit": "d5b5d7b10a0ff4beaa7663f9ae85a220001607c6",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-29"
+    },
+    "agsv1-1.9.0-3.1-x86_64.pkg.tar.zst": {
+      "sha256": "9f1be1ae6a940ece7b8d50109633691bee8f7e9cc29382a40dace53c4eac0549",
+      "source": "https://github.com/Aylur/ags/commit/67b0e31ded361934d78bddcfc01f8c3fcf781aad",
+      "recipe_commit": "82b229d6ce99c94cf73a3bb95e2f20b3cb295643",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "clipse-1.2.1-1-x86_64.pkg.tar.zst": {
+      "sha256": "1bcb0e9e6a5370f525a6fed148104d8142f58904492b76d4f05bf29165b35066",
+      "source": "https://github.com/savedra1/clipse/commit/95d666b6cd8cbaec22732d605bc838365f144617",
+      "recipe_commit": "82b229d6ce99c94cf73a3bb95e2f20b3cb295643",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "darkly-0.5.39-2-x86_64.pkg.tar.zst": {
+      "sha256": "7654ad2e1e9dc786d96345c69f2a372b119240cdd4e437cb0e05112dc27c4153",
+      "source": "https://github.com/Bali10050/darkly/commit/65f6fa62675e3c30986f8fc8e4fdbba053096491",
+      "recipe_commit": "82b229d6ce99c94cf73a3bb95e2f20b3cb295643",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "papirus-folders-1.14.0-1-any.pkg.tar.zst": {
+      "sha256": "0f2376178aca2fe3862947d530892612740c220ce42b92521f1970599bde41be",
+      "source": "https://github.com/PapirusDevelopmentTeam/papirus-folders/commit/0f838ee5679229e3a3e97e3b333c222c9e9615b4",
+      "recipe_commit": "82b229d6ce99c94cf73a3bb95e2f20b3cb295643",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "pwvucontrol-0.5.3-2-x86_64.pkg.tar.zst": {
+      "sha256": "57a19aee93eb824917d6778b1aba02fec63b85e73ee76acc629ee6be6ebf2efe",
+      "source": "https://github.com/saivert/pwvucontrol/commit/fd5c9d1e5458b625d45e4159634b5b072f66cde1",
+      "recipe_commit": "82b229d6ce99c94cf73a3bb95e2f20b3cb295643",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "python-imageio-ffmpeg-0.6.0-2-any.pkg.tar.zst": {
+      "sha256": "0575420dc77864a6399ef8834d33cf206a01d8ca20edb6b70e1fc06c1809342a",
+      "source": "https://github.com/imageio/imageio-ffmpeg/commit/ae47d8028c237ca5507ceef1b843ee427b442887",
+      "recipe_commit": "82b229d6ce99c94cf73a3bb95e2f20b3cb295643",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "python-screeninfo-0.8.1-2-any.pkg.tar.zst": {
+      "sha256": "4143d6a92d957ce6487595006f7ba38b3020e4d7b22c798d88521ae4e000bae1",
+      "source": "https://github.com/rr-/screeninfo/commit/0cf3055ccaf583a00a7a3a049f85a7c58dfd8884",
+      "recipe_commit": "82b229d6ce99c94cf73a3bb95e2f20b3cb295643",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "qtengine-0.2.2-1-x86_64.pkg.tar.zst": {
+      "sha256": "a7c64974a045d852007a3f0a6c362803c30a6f6dc7a21d3f6053d404f69be588",
+      "source": "https://github.com/kossLAN/qtengine/commit/167e7d9a27cdc8005ef2bd4d5d317b9da01b853f",
+      "recipe_commit": "82b229d6ce99c94cf73a3bb95e2f20b3cb295643",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "waypaper-2.9-1-any.pkg.tar.zst": {
+      "sha256": "055304bf6f1045a82c2fe5e268c29573185b2e41ee61969c91c51d0d83e7a433",
+      "source": "https://github.com/anufrievroman/waypaper/commit/7c1f0b3db4e666533822c2682b7ad42373ff18e8",
+      "recipe_commit": "82b229d6ce99c94cf73a3bb95e2f20b3cb295643",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "python-pywal16-1:3.8.15-1-any.pkg.tar.zst": {
+      "sha256": "702b2659076b0ca0f55030d2f215837e2b43064043b5d00fa52b4f497aede1ed",
+      "source": "https://github.com/eylles/pywal16/commit/a04c3e3b57ec57bdf080a863f45f917a18208e58",
+      "recipe_commit": "da0a11bf4077a241f2d549c0514923dbd7171919",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "grimblast-git-r168.57baf31-1-any.pkg.tar.zst": {
+      "sha256": "4f72de9abe0dec51a845baa26eda59ee4d9417ac9906f221c0463a86a6b250cc",
+      "source": "https://github.com/hyprwm/contrib/commit/57baf317e5196a8286b80976771ef55febad8660",
+      "recipe_commit": "da0a11bf4077a241f2d549c0514923dbd7171919",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "hyprshade-5.0.0-1-any.pkg.tar.zst": {
+      "sha256": "84427d36a5e5f4c460a01075f2b8d16acf5dcd548a476f3a70b5c85979346df5",
+      "source": "https://github.com/loqusion/hyprshade/commit/5195f8b84bf8fead4aa39c47785fc85b87a5746e",
+      "recipe_commit": "da0a11bf4077a241f2d549c0514923dbd7171919",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "avizo-1.3-1-x86_64.pkg.tar.zst": {
+      "sha256": "2df9bccbf439c745733f0d8c9380c2e217ef3867db8e9b4005a8bdb9cdba4200",
+      "source": "https://github.com/misterdanb/avizo/commit/79367b2e363f4fb6235819d8e574d72d6e2f79e4",
+      "recipe_commit": "da0a11bf4077a241f2d549c0514923dbd7171919",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "pyprland-3.4.4-1-any.pkg.tar.zst": {
+      "sha256": "8c1af61686c1171dc1088ced745158c09104035b8336e9b5f8073e747a8d9005",
+      "source": "https://github.com/hyprland-community/pyprland/commit/acc4f39b233e6f53d998b69fa01e6359746e3770",
+      "recipe_commit": "da0a11bf4077a241f2d549c0514923dbd7171919",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "quarrel-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "0a911bf874e7fd9d1c803a34ff220b13b503c6137998eddca033d3cce0b7b4c5",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-4-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "05081f8589bb6eeb2e85163ef0eca3816b426f174458766cb0abfe67d71ac0d2",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-battery-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "3169c4f5a1eb14a22f98cb75632cd341603a8da9467a0ec1afdedd1b5103672f",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-bluetooth-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "44991ea259f716c92a69087f2945665e4ec3c4f56d67404807934330a9538ba3",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-cava-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "836aa98ec318b96a14e2c32e65649efba5645cba945012fc4aada8be5f3b595c",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "40595d55bcb62cff2b41af941ec82fef8aaf17affbe02cdaf5f556c7127912f4",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-gjs-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "4b04f74682b7526546144e2cb4ed0762be47ca3bb02bbca79251f0ddd14abf97",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-hyprland-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "8269f53a2145b6b63e2169d21fda513de0e8f697db25036fc2e7929db5204287",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-io-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "3eaaa026604470fbac21019d8a473188afe8d5b66f1762f42bf02621cbbaef7c",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-mpris-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "e4a9be985c09f408fdbd956a5969b3c656649f3f062e75eb71466d5166bb9a5b",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-network-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "32b5a8408674f3b4e50abd102b3c214604ac5d052ea56f67598b1f1362f010ab",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-notifd-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "e362d5968f33989624edcfb85bf80cdb9cf2a56100a3c61bb29067144fc260bf",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-powerprofiles-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "3f0b5d34dbdbfdc0e1afdc02ab6d66be62e33bfe8a3c1d0fc5858eb6ea8ae94b",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-tray-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "20952a20f618567ba2aba3c9b45bc5f0379772c42cf9aa9ddd0c254541cabc24",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libastal-wireplumber-git-r986.cbcd9f4-1-x86_64.pkg.tar.zst": {
+      "sha256": "c5583cf1fbc2997835489a296156d44d61df4d000fd32366b7aa82c3749e19ff",
+      "source": "https://github.com/Aylur/astal/commit/cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "appmenu-glib-translator-git-25.04.r11.ga783b01-1-x86_64.pkg.tar.zst": {
+      "sha256": "3620767b6e24946f9e475f07b6eaee94eb21b2ee02c9e07e19c635a91964bdd1",
+      "source": "https://gitlab.com/vala-panel-project/vala-panel-appmenu/-/commit/a783b01c8b653349843fac9bbd075dac52cdc9de",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "aylurs-gtk-shell-3.1.2-1-x86_64.pkg.tar.zst": {
+      "sha256": "2d433a757ac9dca0b9cfb964a639e6a24123c5514f2300de732671c1f251d963",
+      "source": "https://github.com/Aylur/ags/commit/bbee2f18939f1ec7ff720e717cf305e73635628f",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "ags-hyprpanel-git-r630.1961ba8-2-x86_64.pkg.tar.zst": {
+      "sha256": "6da4d32d3aae758e7386c538933d2ce60f6fd80f99bab850a2acd8b98a5ca446",
+      "source": "https://github.com/Jas-SinghFSU/HyprPanel/commit/1961ba86ad5ab880beb639e5454054b2b5037e0d",
+      "recipe_commit": "6dbdc0abc841f96dc416a0504aee585b1837694c",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "poweralertd-0.3.0-1-x86_64.pkg.tar.zst": {
+      "sha256": "97278e510454328fb61146668726ef992ba2a3fa183d75dae070b55a941273d0",
+      "source": "https://git.sr.ht/~kennylevinsen/poweralertd/commit/2b54c6486b5dd73588a9626f3b211d2ace061fe8",
+      "recipe_commit": "1ee1381231b17b23f91d7bbab0d0fdd873175eb4",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "tofi-0.9.1-2-x86_64.pkg.tar.zst": {
+      "sha256": "429d8bd2117a636e516cf7bb45c4bc48cd778bd1b14f41dbb021455254ef515a",
+      "source": "https://github.com/philj56/tofi/commit/71a4801d20d8904cfcfa5e92c96d53ee06a2c69f",
+      "recipe_commit": "1ee1381231b17b23f91d7bbab0d0fdd873175eb4",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "rofi-power-menu-3.1.0-2-any.pkg.tar.zst": {
+      "sha256": "72a87c6c4e35bbcdfad046484dbac0b97d014938d0d7b16a722d1b116244ea47",
+      "source": "https://github.com/jluttine/rofi-power-menu/commit/395c1e07360b2dbd13c0a658665ab0a581024ec3",
+      "recipe_commit": "1ee1381231b17b23f91d7bbab0d0fdd873175eb4",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "python-pywalfox-2.9.0-1-any.pkg.tar.zst": {
+      "sha256": "ebadc62853e7bc53cb4e01e581f22c4ebacefafc60c8b3140a683f571e381507",
+      "source": "https://github.com/Frewacom/pywalfox-native/commit/2622afac5995c96cc4db71c1ff9311308642cdbb",
+      "recipe_commit": "1ee1381231b17b23f91d7bbab0d0fdd873175eb4",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "mpvpaper-1.9-1-x86_64.pkg.tar.zst": {
+      "sha256": "ea6b80dfbf29776f1ea2d028f9168b239e1b17b745d899a6ba9c0f5a3710fccb",
+      "source": "https://github.com/GhostNaN/mpvpaper/commit/131a52c266d25262c62b85f52a4a978cafae6ee2",
+      "recipe_commit": "1ee1381231b17b23f91d7bbab0d0fdd873175eb4",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "wl-clipboard-history-git-r12.25bacd3-1-x86_64.pkg.tar.zst": {
+      "sha256": "207859ae33d388e6eafd60037add0601bbd24411c4bd2cbdda173de1a0f8fb2d",
+      "source": "https://github.com/janza/wl-clipboard-history/commit/25bacd3fd752ca02d316beb0bb16b8468da4f6a0",
+      "recipe_commit": "1ee1381231b17b23f91d7bbab0d0fdd873175eb4",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "catppuccin-cursors-mocha-2.0.0-1-any.pkg.tar.zst": {
+      "sha256": "68b133f13a3ac0476e0df3980948283f68e8a92631e740628f2a907318f0cf16",
+      "source": "https://github.com/catppuccin/cursors/commit/a7eb08527dcce01010fa0ec46fa2bc4c3154f0d4",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "lexend-fonts-git-1:r114.7894f02-2-any.pkg.tar.zst": {
+      "sha256": "e73ef6c97c964c48ad8346b5c3d3ee12a425efae7aa582d99887470cc56aae52",
+      "source": "https://github.com/googlefonts/lexend/commit/7894f02b2e7eabc48595f1d4eff3b17b48c6e651",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "ttf-go-2.010-2-any.pkg.tar.zst": {
+      "sha256": "3697eb0891d2387a1e19e7c2c9f34d342377112bcf25d7708501d599152c2634",
+      "source": "https://github.com/golang/image/commit/ffcb3fe7d1bf4ed2e01a95a552bb3b7f5dab24d1",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "sunsetr-0.12.5-1-x86_64.pkg.tar.zst": {
+      "sha256": "c3807a3f7445982ed1808af7cec538f43ae1f01af0f6d03d8592c4939295d7a4",
+      "source": "https://github.com/psi4j/sunsetr/commit/3261a3a9bbebcd866cb1da2825aee80904f3f495",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "hyprlax-2.2.7-1-x86_64.pkg.tar.zst": {
+      "sha256": "3259b58ab8b661642ec86f66ab8479ca9950e52b8c578bcde3e436c479b395a0",
+      "source": "https://github.com/sandwichfarm/hyprlax/commit/6aaf8814fcc6b729f59f6494df7655d6c45445f0",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "nm-tray-0.5.1-1-x86_64.pkg.tar.zst": {
+      "sha256": "61b39e60699c358385a2775019fa4ba41d889e43f8159e52ea9f91a177352f21",
+      "source": "https://github.com/palinek/nm-tray/commit/1d55df42144e06d0ace64740f433e04f2094e1dc",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "wleave-0.7.1-2-x86_64.pkg.tar.zst": {
+      "sha256": "ac009f34c13b9f0487137d418d586757a877dbe286a491eb9b82baffb6799408",
+      "source": "https://github.com/AMNatty/wleave/commit/37e7cace1b30022f09465eace3f6298be6869ac1",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "workstyle-git-0.9.0.r146.gdae1501-1-x86_64.pkg.tar.zst": {
+      "sha256": "d71bb8cc95a67cce010deb74b6d86f2d13d7a8e7f1c5b3cdeb8a54be1268a554",
+      "source": "https://github.com/pierrechevalier83/workstyle/commit/dae15018c84c4f0feaf498d3676271ca0e3bec44",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "hyprswitch-5.0.0-1-x86_64.pkg.tar.zst": {
+      "sha256": "00983e34551b80d62d6ea6465b24f3b1731315b70383d7d33f3b1e4a717f3e76",
+      "source": "https://github.com/egnrse/hyprswitch/commit/43d29cda4acb4fa9bcd31c0dd58ee67a423445ea",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "hyprnotify-0.8.0-1-x86_64.pkg.tar.zst": {
+      "sha256": "720929a9466211dfae0f3869b8c3d87f31dc8ca9f0131f0f65f9ad99665ae7be",
+      "source": "https://github.com/codelif/hyprnotify/commit/45d5ebd416bfae5998700c17fa5affdccc90e376",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "libinput-gestures-2.81-1-any.pkg.tar.zst": {
+      "sha256": "eaa9ee7b21c52fd7edc6435e94e601b50b1c7e6082d291198b6b9dc6d68358f1",
+      "source": "https://github.com/bulletmark/libinput-gestures/commit/9552f0dd9b9e78e57840c58c0006e6519bb6e038",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "waybar-module-pacman-updates-git-0.2.14-1-x86_64.pkg.tar.zst": {
+      "sha256": "3c67b38c0dbb739a0a4a8726b2c592b41bbf4e3a8fb68c4be85a150790bdb768",
+      "source": "https://github.com/coffebar/waybar-module-pacman-updates/commit/bc772692928bee1a7aa5778af6ab65d34e93abab",
+      "recipe_commit": "4cf9bb7281f1bb7ee2c2a8a5185575a76a3c3e54",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-09-30"
+    },
+    "walker-2.17.1-2-x86_64.pkg.tar.zst": {
+      "sha256": "a1db6e2b3e533c3c2b6eee8dcfdc0ab35b64e6193493b31373fed7beb5d9dd40",
+      "source": "https://github.com/abenz1267/walker/commit/56c9e2b69e7d2b00f0f9481ae8c89f53810c1de5",
+      "recipe_commit": "fd79b68f55440a58fee226d18b863ad9c4e9d38b",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-01"
+    },
+    "elephant-2.22.1-1-x86_64.pkg.tar.zst": {
+      "sha256": "e5971ddf766c9508ce79a6f5e1c951a60182ee82a07d54c7c96442d0e6a4c4f6",
+      "source": "https://github.com/abenz1267/elephant/commit/8f1e21d6efe40b8b3953f95b9574f99f717caf91",
+      "recipe_commit": "fd79b68f55440a58fee226d18b863ad9c4e9d38b",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-01"
+    },
+    "elephant-desktopapplications-2.22.1-1-x86_64.pkg.tar.zst": {
+      "sha256": "7bf1abec84995e1ae277b240b623113b89471c782258502fa10a02a416ef745c",
+      "source": "https://github.com/abenz1267/elephant/commit/8f1e21d6efe40b8b3953f95b9574f99f717caf91",
+      "recipe_commit": "fd79b68f55440a58fee226d18b863ad9c4e9d38b",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-01"
+    },
+    "elephant-providerlist-2.22.1-1-x86_64.pkg.tar.zst": {
+      "sha256": "7011b2586bc1bc9f3244cafd21f1ab174a103fa43a97a769505ac147e1df367b",
+      "source": "https://github.com/abenz1267/elephant/commit/8f1e21d6efe40b8b3953f95b9574f99f717caf91",
+      "recipe_commit": "fd79b68f55440a58fee226d18b863ad9c4e9d38b",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-01"
+    },
+    "elephant-calc-2.22.1-1-x86_64.pkg.tar.zst": {
+      "sha256": "08cbc4d17f9357fad19421ad99cf9b41e95acfbcf2d0f702bd9a9f284bbc183f",
+      "source": "https://github.com/abenz1267/elephant/commit/8f1e21d6efe40b8b3953f95b9574f99f717caf91",
+      "recipe_commit": "fd79b68f55440a58fee226d18b863ad9c4e9d38b",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-01"
+    },
+    "elephant-websearch-2.22.1-1-x86_64.pkg.tar.zst": {
+      "sha256": "73903f78d39de0b2eaa5618faa4f689a5e6dbb0829c72de82b571125f1812a48",
+      "source": "https://github.com/abenz1267/elephant/commit/8f1e21d6efe40b8b3953f95b9574f99f717caf91",
+      "recipe_commit": "fd79b68f55440a58fee226d18b863ad9c4e9d38b",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-01"
+    },
+    "runapp-0.5.1-1-x86_64.pkg.tar.zst": {
+      "sha256": "d05233c541dd7fc9a07507ad23438b4a6e0854c02ffc1ec6e6637df260f55581",
+      "source": "https://github.com/c4rlo/runapp/commit/1ba272ec2e7fbb7c7fd353283a2430dd5f704df2",
+      "recipe_commit": "fd79b68f55440a58fee226d18b863ad9c4e9d38b",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-01"
+    },
+    "bibata-cursor-theme-bin-2.0.7-1-any.pkg.tar.zst": {
+      "sha256": "d2e01b69c270660f8623526ecf0cd70a290e52e246b5cc23d1d9e69a4595d9c4",
+      "source": "https://github.com/ful1e5/Bibata_Cursor/commit/35ccfe209a808e40d6c2ca60a46cbe4faf68b690",
+      "recipe_commit": "8088e1aeae3941ae37960114f5ce03c4ad6021a6",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-01"
+    },
     "shim-signed-16.1+fedora+7-1-any.pkg.tar.zst": {
       "sha256": "a3e4af2ba6f97000c12d5081e5dccf7800e4735140557010481512f738c0ac64",
       "source": "https://kojipkgs.fedoraproject.org/packages/shim/16.1/7/x86_64/shim-x64-16.1-7.x86_64.rpm",

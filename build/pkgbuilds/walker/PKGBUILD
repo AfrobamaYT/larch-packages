@@ -1,0 +1,56 @@
+# Maintainer: Andrej Benz <hello[at]benz[dot]dev>
+# Larch: cargo builds --locked from the tarball's Cargo.lock, and walker
+# depends on elephant with its desktopapplications and providerlist
+# providers: walker 2 is only the window, it waits for elephant's socket and
+# shows nothing without a provider (README: "Make sure elephant is running and
+# you have providers installed", 2026-10-01).
+
+pkgname=walker
+pkgver=2.17.1
+pkgrel=2
+pkgdesc='wayland application runner'
+url='https://github.com/abenz1267/walker'
+arch=('x86_64' 'aarch64')
+license=('GPL')
+makedepends=('cargo' 'gobject-introspection' 'glibc' 'protobuf')
+depends=('gtk4-layer-shell' 'poppler-glib' 'cairo' 'elephant' 'elephant-desktopapplications' 'elephant-providerlist')
+conflicts=('walker')
+provides=('walker')
+source=("${url}/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=("891de6f3c0974e91a89fc6bb775c7d8b3f9ee50adf81158be048d9496df18be4")
+
+build() {
+    cd ${pkgname}-${pkgver}
+    export RUSTUP_TOOLCHAIN=stable
+    export CARGO_TARGET_DIR=target
+    cargo build --release --locked
+}
+
+package() {
+    cd ${pkgname}-${pkgver}/target/release
+    install -Dm 755 walker -t "${pkgdir}/usr/bin"
+
+    cd ../../
+    install -Dm 644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
+
+    cd resources
+    install -Dm 644 config.toml -t "${pkgdir}/etc/xdg/walker"
+
+    cd themes/default
+    install -Dm 644 item.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 item_calc.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 item_clipboard.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 item_dmenu.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 item_files.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 item_providerlist.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 item_symbols.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 item_symbols_grid.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 item_archlinuxpkgs.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 item_dnfpackages.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 item_todo.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 item_unicode.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 layout.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 keybind.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 preview.xml -t "${pkgdir}/etc/xdg/walker/themes/default"
+    install -Dm 644 style.css -t "${pkgdir}/etc/xdg/walker/themes/default"
+}

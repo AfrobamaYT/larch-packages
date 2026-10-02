@@ -1,0 +1,34 @@
+--- a/src/core/initialization/index.ts
++++ b/src/core/initialization/index.ts
+@@ -1,4 +1,3 @@
+-import { execAsync } from 'astal';
+ import AstalHyprland from 'gi://AstalHyprland?version=0.1';
+ import { Bar } from 'src/components/bar';
+ import { forMonitors } from 'src/components/bar/utils/monitors';
+@@ -26,8 +25,6 @@
+         try {
+             const overallTimer = new Timer('HyprPanel initialization');
+ 
+-            await Timer.measureAsync('Startup scripts', () => this._initializeStartupScripts());
+-
+             Timer.measureSync('Notifications', () => Notifications());
+             Timer.measureSync('OSD', () => OSD());
+ 
+@@ -51,17 +48,6 @@
+         }
+     }
+ 
+-    /**
+-     * Initializes all startup scripts required by the application
+-     */
+-    private static async _initializeStartupScripts(): Promise<void> {
+-        try {
+-            execAsync(`python3 ${SRC_DIR}/scripts/bluetooth.py`);
+-        } catch (error) {
+-            console.error('Failed to initialize startup scripts:', error);
+-        }
+-    }
+-
+     /**
+      * Initializes all menu components
+      */

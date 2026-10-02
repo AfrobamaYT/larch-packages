@@ -1,0 +1,41 @@
+# Maintainer: Elia Nitsche <nitscheelia at gmail dot com>
+# Contributor: H3rmt
+
+# This is a fork of the original hyprswitch as it got renamed to hyprshell!
+# Larch: arch is x86_64, not any -- the package is a Rust ELF binary; and the
+# MIT licence the source ships is installed, since its copyright line has to
+# travel with every copy [larch] hands out (2026-09-30).
+
+pkgname=hyprswitch
+pkgver=5.0.0
+pkgrel=1
+pkgdesc="A CLI/GUI that allows switching between windows in Hyprland"
+arch=('x86_64')
+url="https://github.com/egnrse/hyprswitch/"
+license=("MIT")
+makedepends=('cargo')
+depends=('hyprland' 'gtk4-layer-shell' 'gtk4')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/egnrse/hyprswitch/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('f47916c755ccf11920b281c2fa643ffce71757674e2bb78ba0a4adb06efed3d8')
+
+prepare() {
+    export RUSTUP_TOOLCHAIN=stable
+    cd "$pkgname-$pkgver"
+    cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+}
+
+build() {
+    export RUSTUP_TOOLCHAIN=stable
+    export CARGO_TARGET_DIR=target
+    cd "$pkgname-$pkgver"
+    cargo build --frozen --release
+}
+
+package() {
+    install -Dm0755 -t "$pkgdir/usr/bin/" "$pkgname-$pkgver/target/release/$pkgname"
+    install -Dm0644 "$pkgname-$pkgver/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
+
+post_install() {
+    echo "Please restart the hyprswitch daemon"
+}

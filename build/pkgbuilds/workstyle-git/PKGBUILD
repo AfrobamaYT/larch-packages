@@ -1,0 +1,40 @@
+# Maintainer: Jason Nader <jason.nader@protonmail.com>
+# Larch: the AUR recipe (adfe61b, 2020-02-23) built whatever the default branch
+# held; pinned here to pierrechevalier83/workstyle dae15018 (2025-10-19), the
+# last commit, reviewed 2026-09-30. cargo builds with --locked from the
+# repository's Cargo.lock, and license names MIT, which Cargo.toml declares
+# (the repository ships no licence file). LICENSE here carries the MIT text
+# with the copyright line of Cargo.toml's authors, as a copy [larch] hands out
+# has to include it (2026-09-30).
+
+pkgname=workstyle-git
+_pkgname=workstyle
+pkgver=0.9.0.r146.gdae1501
+pkgrel=1
+pkgdesc='Dynamically renames sway/i3 workspaces to indicate which programs are running in each one'
+arch=('x86_64')
+license=('MIT')
+url='https://github.com/pierrechevalier83/workstyle'
+makedepends=('git' 'rust')
+provides=("$_pkgname")
+conflicts=("$_pkgname")
+source=("$_pkgname::git+$url#commit=dae15018c84c4f0feaf498d3676271ca0e3bec44"
+        'LICENSE')
+sha256sums=('SKIP'
+            '365d8d4ef229aaedb11a7d816678f2389a2554e9a9e7650a2aa411989fa46a93')
+
+pkgver() {
+  cd "$_pkgname"
+  echo $(grep '^version =' Cargo.toml|head -n1|cut -d\" -f2).r$(git rev-list --count HEAD).g$(git describe --always)
+}
+
+build() {
+  cd "$_pkgname"
+  cargo build --release --locked
+}
+
+package() {
+  cd "$_pkgname"
+  install -Dm755 "target/release/$_pkgname" "$pkgdir/usr/bin/$_pkgname"
+  install -Dm644 "$srcdir/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

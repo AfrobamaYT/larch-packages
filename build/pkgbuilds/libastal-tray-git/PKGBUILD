@@ -1,0 +1,48 @@
+# Larch: the AUR recipe (ce2d085 2025-08-05) built whatever the default branch held;
+# pinned here to Aylur/astal cbcd9f49 (2026-09-23), reviewed 2026-09-30. Nothing else changed.
+# Maintainer: kotontrion <kotontrion@tutanota.de>
+
+pkgname=libastal-tray-git
+_pkgname=tray
+pkgver=r986.cbcd9f4
+pkgrel=1
+provides=(astal-tray libastal-tray libastal-tray.so=0-64)
+pkgdesc="Library and cli tool for managing the systemtray."
+arch=(x86_64)
+license=(LGPL-2.1-only)
+url="https://github.com/Aylur/astal"
+depends=(
+  glib2
+  glibc
+  json-glib
+  gtk3
+  gdk-pixbuf2
+  appmenu-glib-translator-git
+)
+makedepends=(
+  meson
+  git
+  gobject-introspection
+  vala
+)
+groups=("libastal")
+source=("git+${url}.git#commit=cbcd9f49dd6b9638dc5623b56cc6e1e0a60b593e")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd astal
+  #git describe --long --tags --abbrev=7 | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
+}
+
+build() {
+  cd astal/lib/$_pkgname
+  arch-meson build
+  meson compile -C build
+}
+
+package() {
+  cd astal/lib/$_pkgname
+  meson install -C build --destdir "$pkgdir"
+}
+

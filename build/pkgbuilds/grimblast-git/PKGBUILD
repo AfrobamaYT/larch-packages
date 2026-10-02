@@ -1,0 +1,42 @@
+# Maintainer: Elias Werberich <elias at werberich dot de>
+# Contributor: Struan Robertson <struanrobertson@protonmail.com>
+# Larch: the AUR recipe (a0e85f9, 2024-01-07) built whatever hyprwm/contrib's
+# default branch held. Pinned here to 57baf317 (2026-08-21), the last commit
+# touching grimblast, reviewed 2026-09-30. `licence=` became `license=`, and
+# the MIT text is installed as its licence requires.
+
+pkgname=grimblast-git
+_commit=57baf317e5196a8286b80976771ef55febad8660
+pkgver=r168.57baf31
+pkgrel=1
+pkgdesc="A helper for screenshots within Hyprland."
+arch=("any")
+url="https://github.com/hyprwm/contrib"
+license=('MIT')
+provides=('grimblast')
+conflicts=('grimblast')
+depends=("hyprland" "grim" "slurp" "jq")
+optdepends=('libnotify: Notify users when a screenshot is taken'
+            'hyprpicker: Freeze the screen in area mode'
+            'wl-clipboard: Copy screenshots')
+makedepends=("scdoc" "git")
+source=("contrib::git+https://github.com/hyprwm/contrib.git#commit=${_commit}")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/contrib"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
+}
+
+build() {
+  cd "$srcdir/contrib/grimblast"
+  scdoc < grimblast.1.scd > grimblast.1
+}
+
+package() {
+  cd "$srcdir/contrib/grimblast"
+
+  install -Dm 644 grimblast.1 "$pkgdir/usr/share/man/man1/grimblast.1"
+  install -Dm 755 grimblast "$pkgdir/usr/bin/grimblast"
+  install -Dm 644 ../LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

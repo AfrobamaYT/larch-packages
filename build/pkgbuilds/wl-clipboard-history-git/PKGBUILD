@@ -1,0 +1,30 @@
+# Contributor: josip <josip@jjanzic.com>
+# Larch: the AUR recipe (32a74ad, 2019-03-25) built whatever the default branch
+# held; pinned here to janza/wl-clipboard-history 25bacd3f (2019-09-16), the
+# last commit, reviewed 2026-09-30; makedepends names git, which a git source
+# needs in a clean chroot ("Cannot find the git package needed to handle git
+# sources"), and the MIT text (LICENCE) is installed as its licence requires.
+pkgname=wl-clipboard-history-git
+pkgver=r12.25bacd3
+pkgrel=1
+pkgdesc="Wayland clipboard history tracker based on wl-clipboard"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h' 'arm' 'aarch64')
+url="https://github.com/janza/wl-clipboard-history"
+license=('MIT')
+depends=('wl-clipboard' 'sqlite>=3.0')
+makedepends=('git')
+source=("${pkgname%-*}::git+https://github.com/janza/wl-clipboard-history.git#commit=25bacd3fd752ca02d316beb0bb16b8468da4f6a0")
+sha1sums=("SKIP")
+
+pkgver() {
+    cd "$srcdir/${pkgname%-*}" || exit 1
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package ()
+{
+  cd "$srcdir/${pkgname%-*}" || exit 1
+  mkdir -p "$pkgdir"/usr/bin/
+  cp "wl-clipboard-history" "$pkgdir"/usr/bin/
+  install -Dm644 LICENCE "$pkgdir/usr/share/licenses/${pkgname}/LICENCE"
+}

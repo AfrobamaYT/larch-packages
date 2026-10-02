@@ -1,0 +1,26 @@
+# Maintainer: mark.blakeney at bullet-systems dot net
+# Larch: the AUR recipe (05c5bae, 2025-12-02), reviewed 2026-09-30, with the
+# tarball's md5sum replaced by its sha256 (the tarball is identical to
+# `git archive` of tag 2.81). Nothing else changed.
+pkgname=libinput-gestures
+pkgver=2.81
+pkgrel=1
+pkgdesc="Actions gestures on your touchpad using libinput"
+url="https://github.com/bulletmark/$pkgname"
+license=("GPL-3.0-or-later")
+arch=("any")
+depends=("python>=3.8" "libinput-tools" "hicolor-icon-theme")
+optdepends=("wmctrl: required for _internal command, as per default configuration"
+            "xdotool: simulates keyboard and mouse actions for Xorg or XWayland based apps")
+conflicts=("$pkgname-git")
+backup=("etc/$pkgname.conf")
+source=("$pkgname-$pkgver.tar.gz::$url/archive/$pkgver.tar.gz")
+install="install.sh"
+sha256sums=('567c59bf15c26aa16fb7d079c76ad09eadb63aa8fde986c0e7a7091ced9589c2')
+
+package() {
+  cd "$pkgname-$pkgver"
+  make DESTDIR="$pkgdir/" install
+}
+
+# vim:set ts=2 sw=2 et:

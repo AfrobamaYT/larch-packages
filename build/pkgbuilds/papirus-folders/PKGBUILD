@@ -1,0 +1,40 @@
+# papirus-folders
+#
+# The AUR recipe at 03b24dc with one change: the source names the signed
+# commit v1.14.0 points at, 0f838ee, instead of the tag. Upstream's release
+# step re-tags with `git tag -f` (Makefile:33), so a tag can move under a
+# pinned checksum; the commit cannot. Its signature is made by the same key.
+# The package runs as root through its pacman hook (-R, after every
+# papirus-icon-theme upgrade). Larch adds no sudo or polkit rule for it: its
+# -t argument accepts any directory with an index.theme, and root would then
+# create symlinks there (review, 2026-09-30).
+
+# Maintainer: Mark Wagie <mark dot wagie at proton dot me>
+# Contributor: Alberto Redondo <albertomost at gmail dot com>
+# Contributor: Caltlgin Stsodaat <contact@fossdaily.xyz>
+# Contributor: Piotr Górski <lucjan.lucjanov@gmail.com>
+pkgname=papirus-folders
+pkgver=1.14.0
+pkgrel=1
+pkgdesc="Allows changing the color of folders in Papirus icon theme and its forks"
+arch=('any')
+url="https://github.com/PapirusDevelopmentTeam/papirus-folders"
+license=('MIT')
+depends=(
+  'bash'
+  'papirus-icon-theme'
+)
+makedepends=('git')
+source=("git+https://github.com/PapirusDevelopmentTeam/papirus-folders.git#commit=0f838ee5679229e3a3e97e3b333c222c9e9615b4?signed"
+        "$pkgname.hook")
+sha256sums=('a1632b752e1b65814a7c316e6b6a94833b72fe88c912cfe58b5293a899102055'
+            'b6f52cab4c7a42e85b7e3cc0160bb9cf060aed20ab78ee2135a3f18dcaf6e92c')
+validpgpkeys=('1BA35B1B2207A266F6E0AD2AF0EC91A29D2E78EC') # Sergei Eremenko <finalitik@gmail.com>
+
+package() {
+  cd "$pkgname"
+  make ZSHCOMPDIR="/usr/share/zsh/site-functions" DESTDIR="$pkgdir" install
+
+  install -Dm644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname"
+  install -Dm644 "$srcdir/$pkgname.hook" -t "$pkgdir/usr/share/libalpm/hooks/"
+}

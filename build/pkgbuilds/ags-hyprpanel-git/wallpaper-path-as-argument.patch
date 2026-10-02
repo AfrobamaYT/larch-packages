@@ -1,0 +1,37 @@
+--- a/src/services/matugen/index.ts
++++ b/src/services/matugen/index.ts
+@@ -91,16 +91,20 @@
+             const mode = MATUGEN_SETTINGS.mode.get();
+             const sourceIndex = MATUGEN_SETTINGS.source_color_index.get();
+ 
+-            const baseCommand = `matugen image -q "${normalizedPath}" -t scheme-${schemeType} --mode ${mode} --contrast ${normalizedContrast} --source-color-index ${sourceIndex}`;
++            const baseCommand = [
++                'matugen', 'image', '-q', normalizedPath,
++                '-t', `scheme-${schemeType}`, '--mode', `${mode}`,
++                '--contrast', `${normalizedContrast}`, '--source-color-index', `${sourceIndex}`,
++            ];
+ 
+-            const jsonResult = await SystemUtilities.bash(`${baseCommand} --dry-run --json hex`);
++            const jsonResult = await SystemUtilities.sh([...baseCommand, '--dry-run', '--json', 'hex']);
+ 
+             if (!jsonResult || jsonResult.trim().length === 0) {
+                 console.error('[Matugen] Matugen returned empty output');
+                 throw new Error('Matugen returned empty output');
+             }
+ 
+-            await SystemUtilities.bash(baseCommand);
++            await SystemUtilities.sh(baseCommand);
+ 
+             const parsedResult = JSON.parse(jsonResult);
+ 
+--- a/src/style/optionsTrackers.ts
++++ b/src/style/optionsTrackers.ts
+@@ -44,7 +44,7 @@
+         }
+         if (options.wallpaper.pywal.get() && SystemUtilities.checkDependencies('wal')) {
+             const wallpaperPath = options.wallpaper.image.get();
+-            SystemUtilities.bash(`wal -i "${wallpaperPath}"`);
++            SystemUtilities.sh(['wal', '-i', wallpaperPath]);
+         }
+     });
+ };

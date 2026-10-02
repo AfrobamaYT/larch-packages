@@ -1,0 +1,25 @@
+--- a/src/components/notifications/Actions/index.tsx
++++ b/src/components/notifications/Actions/index.tsx
+@@ -1,4 +1,3 @@
+-import { execAsync } from 'astal';
+ import { Gtk } from 'astal/gtk3';
+ import AstalNotifd from 'gi://AstalNotifd?version=0.1';
+ import { isPrimaryClick } from 'src/lib/events/mouse';
+@@ -13,15 +12,8 @@
+                     return;
+                 }
+ 
+-                if (action.id.includes('scriptAction:-')) {
+-                    execAsync(`${action.id.replace('scriptAction:-', '')}`).catch((err) =>
+-                        console.error(err),
+-                    );
+-                    notification.dismiss();
+-                } else {
+-                    notification.invoke(action.id);
+-                    notification.dismiss();
+-                }
++                notification.invoke(action.id);
++                notification.dismiss();
+             }}
+         >
+             <box halign={Gtk.Align.CENTER} hexpand>

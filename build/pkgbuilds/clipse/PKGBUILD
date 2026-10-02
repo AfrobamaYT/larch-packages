@@ -1,0 +1,54 @@
+# clipse
+#
+# The AUR recipe at 7760fcb with the build made offline and verifiable:
+# - `go mod tidy` is gone. It rewrote go.mod/go.sum and downloaded all 51
+#   modules during build(), unpinned; prepare() now downloads the modules
+#   go.sum names (go verifies each hash) and build() runs with GOPROXY=off,
+#   GOTOOLCHAIN=local and -mod=readonly, so anything unpinned fails loudly.
+# - arch is x86_64 (it ships a native binary) and license MIT, upstream's
+#   LICENSE (installed), not GPL.
+# Review 2026-09-30: build/reviews/clipse-1.2.1.md.
+
+# Contributor: raininja < dandenkijin at gmail dot com >
+# Maintainer: raininja < dandenkijin at gmail dot com >
+
+pkgname=clipse
+pkgver=1.2.1
+pkgrel=1
+pkgdesc="A configurable TUI clipboard manager for Unix, built for wayland."
+arch=('x86_64')
+url="https://github.com/savedra1/clipse"
+license=('MIT')
+makedepends=(
+  'go'
+)
+optdepends=(
+  'wl-clipboard'
+)
+source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('ec906744103a611cc1045a9d65f20b13b454ee046fd979abf1341a1b78fe553e')
+
+prepare() {
+  cd "$srcdir/$pkgname-$pkgver"
+  export GOPATH="$srcdir"/gopath
+  export GOFLAGS="-modcacherw"
+  export GOTOOLCHAIN=local
+  go mod download
+}
+
+build() {
+  export GOPATH="$srcdir"/gopath
+  export CGO_ENABLED=0
+  export GOPROXY=off
+  export GOTOOLCHAIN=local
+  export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
+
+  cd "$srcdir/$pkgname-$pkgver"
+  go build -tags wayland -o $pkgname
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  install -Dm755 $pkgname "$pkgdir"/usr/bin/$pkgname
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+}

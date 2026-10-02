@@ -1,0 +1,127 @@
+# Maintainer: cat_nm
+# Maintainer: jaskir
+# Larch: the AUR recipe (a900623, 2025-07-03), which built whatever
+# HyprPanel's master held, pinned to Jas-SinghFSU/HyprPanel 1961ba86
+# (2026-04-22, the last commit: the repository is archived since) and reviewed
+# 2026-09-30, with five changes:
+# - notification-actions-invoke-only.patch: HyprPanel ran any notification
+#   action id containing "scriptAction:-" as a command when its button was
+#   clicked. The id is the sender's choice, and Firefox hands a web page's own
+#   notification action through as "<action>-moz"
+#   (toolkit/system/gnome/nsAlertsIconListener.cpp;
+#   dom.webnotifications.actions.enabled defaults to true), so a page allowed
+#   to notify could have a click run a command. Actions now only go back to
+#   the application that sent them.
+# - no-bluetooth-agent.patch, and bluetooth.py left out: at every start
+#   HyprPanel ran scripts/bluetooth.py, which registers itself as BlueZ's
+#   default agent and answers each RequestConfirmation, RequestAuthorization
+#   and AuthorizeService at once, before its notification is clicked. BlueZ
+#   takes a reply without an error as consent (src/agent.c,
+#   simple_agent_reply), so every pairing and service a nearby device asked
+#   for was granted while HyprPanel ran (python-dbus comes with uwsm).
+# - wallpaper-path-as-argument.patch: the wallpaper's path went into
+#   `bash -c` inside double quotes for wal and matugen, so a file name with
+#   $(...) ran as a command once pywal or matugen was on. The path is now an
+#   argument of its own.
+# - npm ci --omit=dev --ignore-scripts instead of npm install: the one runtime
+#   dependency is the local astal link; the linters and TypeScript tooling are
+#   neither bundled nor installed, and no npm install script runs.
+# - depends names the Astal libraries HyprPanel imports (src/, gi://Astal*)
+#   instead of libastal-meta and its 21 libraries.
+pkgname=ags-hyprpanel-git
+_commit=1961ba86ad5ab880beb639e5454054b2b5037e0d
+pkgver=r630.1961ba8
+pkgrel=2
+pkgdesc="A Bar/Panel for Hyprland with extensive customizability"
+arch=('x86_64')
+url="https://hyprpanel.com/"
+license=('MIT')
+depends=(
+    # official repository:
+    'wireplumber'
+    'libgtop'
+    'bluez'
+    'bluez-utils'
+    'networkmanager'
+    'dart-sass'
+    'wl-clipboard'
+    'upower'
+    'gvfs'
+    'ttf-jetbrains-mono-nerd'
+    'gtksourceview3'
+    'libsoup3'
+    # [larch]: AGS 3.1.2, and Aylur/astal cbcd9f49:
+    'aylurs-gtk-shell'
+    'libastal-io-git'
+    'libastal-git'
+    'libastal-gjs-git'
+    'libastal-battery-git'
+    'libastal-bluetooth-git'
+    'libastal-cava-git'
+    'libastal-hyprland-git'
+    'libastal-mpris-git'
+    'libastal-network-git'
+    'libastal-notifd-git'
+    'libastal-powerprofiles-git'
+    'libastal-tray-git'
+    'libastal-wireplumber-git'
+)
+makedepends=(
+    'meson'
+    'git'
+    'npm'
+    'aylurs-gtk-shell'
+)
+optdepends=(
+    'python: GPU usage tracking (NVidia only)'
+    'python-gpustat: GPU usage tracking (NVidia only)'
+    'python-pywal: Pywal hook for wallpapers'
+    'pacman-contrib: Checking for pacman updates'
+    'power-profiles-daemon: Switch power profiles'
+    'swww: Setting wallpapers'
+    'grimblast-git: For the snapshot shortcut'
+    'brightnessctl: To control keyboard and screen brightness'
+    'btop: To view system resource usage'
+    'wf-recorder: To use the built in screen recorder'
+    'hyprpicker: To use the preset color picker shortcut'
+    'hypridle: To use hyprlands idle inhibitor'
+    'hyprsunset: To enable the hyprland blue light filter'
+    'matugen-bin: To use wallpaper based color schemes'
+)
+source=("HyprPanel::git+https://github.com/Jas-SinghFSU/HyprPanel.git#commit=${_commit}"
+        "notification-actions-invoke-only.patch"
+        "no-bluetooth-agent.patch"
+        "wallpaper-path-as-argument.patch")
+sha256sums=('SKIP'
+            '213f1d8840af044bf2fe726b04012ab283177f7fafccd0ca011b3e5f7a4f44b5'
+            '7734fb468fd5e3139355fa07deb3a0b0b7f65bc42182ad40dfebcc1126fa6fe6'
+            'd22d8c391e893e315414c2f30bd0b5434f950c95ac8af6f9cc9b980996564c66')
+
+pkgver() {
+    cd "$srcdir/HyprPanel"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
+}
+
+prepare() {
+    cd "$srcdir/HyprPanel"
+    patch -Np1 -i ../notification-actions-invoke-only.patch
+    patch -Np1 -i ../no-bluetooth-agent.patch
+    patch -Np1 -i ../wallpaper-path-as-argument.patch
+    npm ci --omit=dev --ignore-scripts
+}
+
+build() {
+    cd "$srcdir/HyprPanel"
+    arch-meson build
+    meson compile -C build
+}
+
+package() {
+    cd "$srcdir/HyprPanel"
+
+    meson install -C build --destdir "$pkgdir"
+    rm "$pkgdir/usr/share/hyprpanel/scripts/bluetooth.py"
+
+    # License
+    install -Dm644 "LICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
+}

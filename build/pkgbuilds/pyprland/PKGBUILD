@@ -1,0 +1,44 @@
+# Maintainer: Fabien Devaux <fdev31@gmail.com>
+# Contributor: Fabien Devaux <fdev31@gmail.com>
+# Larch: the AUR recipe (7ebb36e, 2026-09-03) without pypr-gui. Its aiohttp
+# server (127.0.0.1:18099, pyprland/gui/server.py) saves and applies the
+# pyprland config over POST /api/save and /api/apply with no Origin, Host or
+# token check, and aiohttp's request.json() takes a text/plain body, so any
+# web page could post a config while it runs; system_notifier starts the
+# commands of its `sources` on load. The rices call only `pypr`, which never
+# imports pyprland.gui (reviewed 2026-09-30).
+pkgname=pyprland
+pkgver=3.4.4
+pkgrel=1
+pkgdesc="Enhance your Desktop with menus, easy monitor layout and other extensions (powerful hyprland scratchpads)"
+arch=(any)
+url="https://github.com/hyprland-community/pyprland"
+license=('MIT')
+groups=()
+depends=('python' 'python-aiofiles' 'python-aiohttp' 'python-pillow')
+makedepends=('git' 'python-build' 'python-installer' 'python-hatchling' 'gcc')
+optdepends=('python-questionary: for pypr-quickstart to work')
+provides=("${pkgname}")
+conflicts=("${pkgname}")
+replaces=()
+backup=()
+options=()
+noextract=()
+source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/${pkgver}.tar.gz")
+sha256sums=('5e9b695ddc4ba7d740168aefcde2f334bd341dd8c2e63c6290941785115e3a1d')
+
+build() {
+    cd $pkgname-$pkgver
+    python -m build --wheel --no-isolation
+    cd client
+    ${CC:-gcc} -o pypr-client pypr-client.c
+}
+
+package() {
+    cd $pkgname-$pkgver
+    python -m installer --destdir="$pkgdir" dist/*.whl
+    install -Dm0755 "client/pypr-client" "$pkgdir/usr/bin/pypr-client"
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+    rm -- "$pkgdir/usr/bin/pypr-gui"
+    rm -r -- "$pkgdir"/usr/lib/python3.*/site-packages/pyprland/gui
+}
