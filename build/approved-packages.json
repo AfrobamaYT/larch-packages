@@ -35,6 +35,13 @@
       "recipe_commit": "59649fdfb6c297f0501e9d0863b56fb339da3ee4",
       "reviewed_by": "Larch security review",
       "reviewed_at": "2026-09-29"
+    },
+    "shim-signed-16.1+fedora+7-1-any.pkg.tar.zst": {
+      "sha256": "a3e4af2ba6f97000c12d5081e5dccf7800e4735140557010481512f738c0ac64",
+      "source": "https://kojipkgs.fedoraproject.org/packages/shim/16.1/7/x86_64/shim-x64-16.1-7.x86_64.rpm",
+      "recipe_commit": "528833c82010e8048ed1f4bba06004d2dc017ede",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-02"
     }
   }
 }

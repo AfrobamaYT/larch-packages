@@ -33,6 +33,7 @@ are retired. If you trusted either, remove it: `sudo pacman-key --delete <finger
 | chwd 1.24.1-1 | GPL-3.0-or-later | [commit e99ec33](https://github.com/CachyOS/chwd/commit/e99ec339715f2b5724a1adc100ea55b94e59df5a) (tag 1.24.1) | `build/pkgbuilds/chwd`: CachyOS's recipe, source pinned, with Larch's graphics profiles |
 | hyprlang2lua 0.7.1-1 | MIT | [tag v0.7.1](https://github.com/EIonTusk/hyprlang2lua/archive/refs/tags/v0.7.1.tar.gz), SHA-256 `fa041a03…` | `build/pkgbuilds/hyprlang2lua`: the AUR recipe at 9a37482, unchanged |
 | hyprland-preview-share-picker-git 0.2.1.r16.g0ef9b30-1 | MIT | [commit 0ef9b30](https://github.com/WhySoBad/hyprland-preview-share-picker/commit/0ef9b302aee716f36ea19e33ff3cc457d8c075a8) | `build/pkgbuilds/hyprland-preview-share-picker-git`: the AUR recipe at 1aa950b, source pinned, licence installed |
+| shim-signed 16.1+fedora+7-1 | BSD-2-Clause | [Fedora's shim 16.1-7](https://koji.fedoraproject.org/koji/packageinfo?packageID=14502), prebuilt and signed by Microsoft; x86_64 RPM SHA-512 `642f7bd6…` | `build/pkgbuilds/shim-signed`: the AUR recipe at 2fb92b9, unchanged |
 
 For the GPL-3.0-or-later packages this is their Corresponding Source: the upstream source above
 together with the recipe here that builds it, with `makechrootpkg -c` in a clean chroot. Build
