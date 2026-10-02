@@ -1,0 +1,66 @@
+# Larch's aquamarine: Arch's extra/aquamarine 0.15.1-1 plus the upstream fix
+# for a crash when Hyprland exits with more than one screen (fc77bd5, "drm:
+# fix crash on null connector in flush", on main since 2026-09-22, in no
+# release yet). The greeter's Hyprland crashed this way at every login on the
+# owner's NVIDIA desktop: SIGSEGV in CDRMBackend::flushAsyncCommitEvents, two
+# coredumps per login (aquamarine #383; measured 2026-09-29 and 2026-10-02).
+#
+# pkgver 0.15.1.1 sorts after every 0.15.1-N rebuild of Arch's and before
+# 0.15.2, which carries the fix upstream: the first newer aquamarine in extra
+# replaces this package on the next -Syu. [larch] stays last in pacman.conf;
+# install it by name, larch/aquamarine.
+#
+# Based on archlinux/packaging/packages/aquamarine @ 33bf60a (0BSD):
+# Maintainer: Caleb Maclennan <caleb@alerque.com>
+# Contributor: Aaron Blasko <blaskoazzolaaaron [at] gmail.com>
+
+pkgname=aquamarine
+_upstreamver=0.15.1
+pkgver=0.15.1.1
+pkgrel=1
+pkgdesc='a very light linux rendering backend library (with the fix for a crash on exit with several screens)'
+arch=(x86_64 aarch64)
+url="https://github.com/hyprwm/$pkgname"
+license=(BSD-3-Clause)
+depends=(libgcc
+         libstdc++
+         glibc # libc.so libm.so
+         hyprutils libhyprutils.so
+         libdisplay-info libdisplay-info.so
+         libdrm # libdrm.so
+         libglvnd libEGL.so
+         libinput # libinput.so
+         mesa # libgbm.so
+         opengl-driver
+         pixman
+         seatd libseat.so
+         systemd-libs libudev.so
+         wayland libwayland-client.so
+         wayland-protocols)
+makedepends=(cmake
+             hyprwayland-scanner)
+provides=("lib$pkgname.so")
+_archive="$pkgname-$_upstreamver"
+source=("$url/archive/v$_upstreamver/$_archive.tar.gz"
+        "fc77bd5-null-connector-flush.patch")
+sha256sums=('2f9de98c0bd1b7b1b09c576e390a2fef436449762fb334163c414f0c300296f2'
+            '9bf7035b232f9616f6bb39013c9ec1ad9fbbf460113d726881ada53c77730f35')
+
+prepare() {
+	cd "$_archive"
+	patch -Np1 -i "$srcdir/fc77bd5-null-connector-flush.patch"
+}
+
+build() {
+	cd "$_archive"
+	cmake -B build \
+		-D CMAKE_INSTALL_PREFIX=/usr \
+		-D CMAKE_BUILD_TYPE=Release
+	cmake --build build
+}
+
+package() {
+	cd "$_archive"
+	DESTDIR="$pkgdir" cmake --install build
+	install -Dm0644 -t "$pkgdir/usr/share/licenses/$pkgname" LICENSE
+}

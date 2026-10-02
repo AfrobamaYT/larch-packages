@@ -504,6 +504,13 @@
       "recipe_commit": "528833c82010e8048ed1f4bba06004d2dc017ede",
       "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
       "reviewed_at": "2026-10-02"
+    },
+    "aquamarine-0.15.1.1-1-x86_64.pkg.tar.zst": {
+      "sha256": "f9b1b6a339e3e80d84c55a8296aec11f44f389c233f91905b407adad7d194ca7",
+      "source": "https://github.com/hyprwm/aquamarine/commit/fc77bd58a2c9ef6d0760a7c9c3b7b6670f956f28",
+      "recipe_commit": "7628ba860cf3d30b08ba11bffba4e9830e186963",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-02"
     }
   }
 }
