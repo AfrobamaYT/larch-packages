@@ -5,10 +5,24 @@
 # owner's NVIDIA desktop: SIGSEGV in CDRMBackend::flushAsyncCommitEvents, two
 # coredumps per login (aquamarine #383; measured 2026-09-29 and 2026-10-02).
 #
+# And, since pkgrel 2, a fix of Larch's own that no upstream carries yet: a
+# headless screen in a NESTED Hyprland -- the offscreen rice sandbox draws on
+# one -- took its buffer formats from a fallback list of linear buffers only,
+# because a nested session has no DRM backend to ask. NVIDIA renders into no
+# linear buffer: on the owner's RTX 3080 the screen came up at 0x0 ("GBM:
+# Failed to allocate a GBM buffer: bo null") and the sandbox photographed
+# nothing. Nested, the parent compositor's dmabuf formats are what the GPU
+# renders -- the nested window output uses them already -- so the headless
+# backend asks the Wayland backend for them before the fallback. Measured
+# 2026-10-03 on that PC: 1920x1080, BLOCK_LINEAR_2D buffers, a picture.
+#
 # pkgver 0.15.1.1 sorts after every 0.15.1-N rebuild of Arch's and before
-# 0.15.2, which carries the fix upstream: the first newer aquamarine in extra
-# replaces this package on the next -Syu. [larch] stays last in pacman.conf;
-# install it by name, larch/aquamarine.
+# 0.15.2, which carries the crash fix upstream: the first newer aquamarine in
+# extra replaces this package on the next -Syu. ⛔ It does not carry the
+# headless fix: rebuild 0.15.2 with that patch, or on NVIDIA the sandbox stops
+# again -- larch-rice then refuses with "LARCH-SANDBOX 0x0" rather than run
+# blind. [larch] stays last in pacman.conf; install it by name,
+# larch/aquamarine.
 #
 # Based on archlinux/packaging/packages/aquamarine @ 33bf60a (0BSD):
 # Maintainer: Caleb Maclennan <caleb@alerque.com>
@@ -17,8 +31,8 @@
 pkgname=aquamarine
 _upstreamver=0.15.1
 pkgver=0.15.1.1
-pkgrel=1
-pkgdesc='a very light linux rendering backend library (with the fix for a crash on exit with several screens)'
+pkgrel=2
+pkgdesc='a very light linux rendering backend library (with the fixes for a crash on exit with several screens and for nested headless screens)'
 arch=(x86_64 aarch64)
 url="https://github.com/hyprwm/$pkgname"
 license=(BSD-3-Clause)
@@ -42,13 +56,16 @@ makedepends=(cmake
 provides=("lib$pkgname.so")
 _archive="$pkgname-$_upstreamver"
 source=("$url/archive/v$_upstreamver/$_archive.tar.gz"
-        "fc77bd5-null-connector-flush.patch")
+        "fc77bd5-null-connector-flush.patch"
+        "headless-nested-parent-formats.patch")
 sha256sums=('2f9de98c0bd1b7b1b09c576e390a2fef436449762fb334163c414f0c300296f2'
-            '9bf7035b232f9616f6bb39013c9ec1ad9fbbf460113d726881ada53c77730f35')
+            '9bf7035b232f9616f6bb39013c9ec1ad9fbbf460113d726881ada53c77730f35'
+            'd5305f4529193ca6e0cb80c062cce2a388f0b0c030e907e77dea029b14193e21')
 
 prepare() {
 	cd "$_archive"
 	patch -Np1 -i "$srcdir/fc77bd5-null-connector-flush.patch"
+	patch -Np1 -i "$srcdir/headless-nested-parent-formats.patch"
 }
 
 build() {

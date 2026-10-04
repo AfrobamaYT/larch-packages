@@ -1,0 +1,20 @@
+diff --git i/src/backend/Headless.cpp w/src/backend/Headless.cpp
+index 179b850..e369ac0 100644
+--- i/src/backend/Headless.cpp
++++ w/src/backend/Headless.cpp
+@@ -161,6 +161,15 @@ std::vector<SDRMFormat> Aquamarine::CHeadlessBackend::getRenderFormats() {
+         return impl->getRenderableFormats();
+     }
+ 
++    // Nested, there is no DRM backend. The parent compositor's dmabuf formats are
++    // what this GPU allocates and renders: the fallback below holds only linear
++    // buffers, and NVIDIA renders into none of them (an output stays at 0x0).
++    for (const auto& impl : backend->getImplementations()) {
++        if (impl->type() != AQ_BACKEND_WAYLAND || impl->getRenderFormats().empty())
++            continue;
++        return impl->getRenderFormats();
++    }
++
+     // formats probably supported by EGL
+     return {SDRMFormat{.drmFormat = DRM_FORMAT_XRGB8888, .modifiers = {DRM_FORMAT_INVALID}},
+             SDRMFormat{.drmFormat = DRM_FORMAT_XBGR8888, .modifiers = {DRM_FORMAT_INVALID}},

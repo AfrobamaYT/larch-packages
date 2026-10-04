@@ -1,0 +1,48 @@
+# Maintainer: Larch
+#
+# ML4W's settings window (Quickshell) and the script behind it. ML4W's
+# installer copies lib/ to ~/.local/share/ml4w-dotfiles-settings and the script
+# to ~/.local/bin; a rice repository does not carry either, so the Welcome
+# window's "Dotfiles Settings", the sidebar's and the theme reload after a
+# wallpaper change found nothing (the owner, 2026-10-03, decided Larch ships
+# it). No AUR recipe exists; this one installs the same files system-wide.
+# The rice's own references are pointed here by catalogue/fixes/<rice>.
+
+pkgname=ml4w-dotfiles-settings
+_commit=9199d4b76fafce81fe68aab67ee8f29136e4ec6d
+pkgver=2026.10.01
+pkgrel=1
+pkgdesc="ML4W's settings window for its Hyprland dotfiles (Quickshell) and its settings script"
+url="https://github.com/mylinuxforwork/ml4w-dotfiles-settings"
+arch=(any)
+license=(GPL-3.0-only)
+depends=(bash gum jq quickshell)
+source=("$pkgname-$_commit.tar.gz::$url/archive/$_commit.tar.gz")
+sha256sums=('e36ea3cc3682592a2c734203723f68910004d086175923d63ba77e878b85e266')
+
+prepare() {
+  cd "$pkgname-$_commit"
+  # Where ML4W's installer puts things, where a package puts them. Each edit is
+  # checked: a pattern that no longer matches must stop the build, not ship a
+  # script that looks in ~/.local again.
+  sed -i 's|^    LIB_DIR="\$HOME/.local/share/ml4w-dotfiles-settings"$|    LIB_DIR="/usr/share/ml4w-dotfiles-settings"|' \
+    bin/ml4w-dotfiles-settings
+  sed -i 's|^DEMO_FILE="\$APP_DIR/demo/settings.json"$|DEMO_FILE="/usr/share/ml4w-dotfiles-settings/demo/settings.json"|' \
+    bin/ml4w-dotfiles-settings
+  sed -i 's|Quickshell.env("HOME") + "/.local/bin/ml4w-dotfiles-settings"|"/usr/bin/ml4w-dotfiles-settings"|' \
+    lib/quickshell/SettingsApp/SettingsWindow.qml
+  grep -qx '    LIB_DIR="/usr/share/ml4w-dotfiles-settings"' bin/ml4w-dotfiles-settings
+  grep -qx 'DEMO_FILE="/usr/share/ml4w-dotfiles-settings/demo/settings.json"' bin/ml4w-dotfiles-settings
+  grep -q '"/usr/bin/ml4w-dotfiles-settings"' lib/quickshell/SettingsApp/SettingsWindow.qml
+  ! grep -q '\.local/bin/ml4w-dotfiles-settings' lib/quickshell/SettingsApp/SettingsWindow.qml
+}
+
+package() {
+  cd "$pkgname-$_commit"
+  install -Dm755 bin/ml4w-dotfiles-settings "$pkgdir/usr/bin/ml4w-dotfiles-settings"
+  install -d "$pkgdir/usr/share/ml4w-dotfiles-settings"
+  cp -r --no-preserve=ownership lib/quickshell "$pkgdir/usr/share/ml4w-dotfiles-settings/"
+  install -Dm644 lib/utils.sh "$pkgdir/usr/share/ml4w-dotfiles-settings/utils.sh"
+  install -Dm644 demo/settings.json "$pkgdir/usr/share/ml4w-dotfiles-settings/demo/settings.json"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

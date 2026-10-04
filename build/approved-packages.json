@@ -505,12 +505,40 @@
       "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
       "reviewed_at": "2026-10-02"
     },
-    "aquamarine-0.15.1.1-1-x86_64.pkg.tar.zst": {
-      "sha256": "f9b1b6a339e3e80d84c55a8296aec11f44f389c233f91905b407adad7d194ca7",
-      "source": "https://github.com/hyprwm/aquamarine/commit/fc77bd58a2c9ef6d0760a7c9c3b7b6670f956f28",
-      "recipe_commit": "7628ba860cf3d30b08ba11bffba4e9830e186963",
+    "ml4w-dotfiles-settings-2026.10.01-1-any.pkg.tar.zst": {
+      "sha256": "7455c86ebac918618ff958b64715143e5d04ae077b7623f2896d6e84f43fa001",
+      "source": "https://github.com/mylinuxforwork/ml4w-dotfiles-settings/commit/9199d4b76fafce81fe68aab67ee8f29136e4ec6d",
+      "recipe_commit": "69adca0805bd064200e33b2350b29b5c43ee90ac",
       "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
-      "reviewed_at": "2026-10-02"
+      "reviewed_at": "2026-10-03"
+    },
+    "swaylock-effects-1.7.0.0-4-x86_64.pkg.tar.zst": {
+      "sha256": "a9877f55d22266cbbe8da7b97b8c7a3331ca50cb694558736cb44aef7d319051",
+      "source": "https://github.com/jirutka/swaylock-effects/commit/4f2234c6bca3ce80dce1dbf7407825a38d58103c",
+      "recipe_commit": "dfb6e3044547a7f99e39d2415d43deb020f6f6be",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-03"
+    },
+    "aquamarine-0.15.1.1-2-x86_64.pkg.tar.zst": {
+      "sha256": "1c13e53c0d80df27f259f4b339f36cb683838a6b6285f4af191dad2fbd2f7520",
+      "source": "https://github.com/hyprwm/aquamarine/archive/v0.15.1/aquamarine-0.15.1.tar.gz",
+      "recipe_commit": "815ed5d1431976c9b1cdc75003529233074ddf21",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-03"
+    },
+    "python-sherpa-onnx-1.13.8-1-x86_64.pkg.tar.zst": {
+      "sha256": "b93331a6c3d7397cf0b6c1bc6a2dc95dcce650a7e4873a9ca4735525112b775a",
+      "source": "https://github.com/k2-fsa/sherpa-onnx/archive/refs/tags/v1.13.8.tar.gz",
+      "recipe_commit": "dffb1805c53bfccaedf8be9dfdd880628eda8de8",
+      "reviewed_by": "Larch security review",
+      "reviewed_at": "2026-10-04"
+    },
+    "piper-tts-1.8.0-1-x86_64.pkg.tar.zst": {
+      "sha256": "dbe2cc12fd3394c058d4a09d17d2a6b2c8a11e4284561b10841e071c77d3bddb",
+      "source": "https://github.com/OHF-Voice/piper1-gpl.git#tag=v1.8.0",
+      "recipe_commit": "dffb1805c53bfccaedf8be9dfdd880628eda8de8",
+      "reviewed_by": "Larch security review",
+      "reviewed_at": "2026-10-04"
     }
   }
 }

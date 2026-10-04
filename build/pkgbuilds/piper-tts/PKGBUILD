@@ -1,0 +1,54 @@
+# Maintainer of the AUR recipe this follows (piper-tts, e190a7c): André Apitzsch
+#
+# Larch carries the Python module, for the assistant's German voice
+# (de_DE-mls-medium, cmd/larch-assistant). Its build fetched espeak-ng with git
+# while building, pinned to a short hash only; here that commit is a source of
+# its own, and a download it tries anyway fails. Without libpiper and its
+# tests, which the module does not use, and without the piper command, which
+# needs pathvalidate, not in Arch. build/reviews/piper-tts-1.8.0.md has the rest.
+
+pkgname=piper-tts
+_pkgname=piper1-gpl
+pkgver=1.8.0
+pkgrel=1
+pkgdesc="Fast and local neural text-to-speech engine (Python module)"
+arch=('x86_64')
+url="https://github.com/OHF-Voice/piper1-gpl"
+# espeak-ng, compiled in, is GPL-3.0-or-later too; g2pW's code is Apache-2.0.
+license=('GPL-3.0-or-later' 'Apache-2.0')
+depends=('glibc' 'python' 'python-numpy' 'python-onnxruntime')
+# libsonic: without it espeak-ng's cmake fetches sonic with git while
+# building (measured); piper builds espeak-ng without it all the same.
+makedepends=('cmake' 'git' 'libsonic' 'ninja' 'python-build' 'python-installer' 'python-scikit-build'
+             'python-setuptools' 'python-wheel')
+_espeak=724808c5a83f9ef95fdd0db886ba7ba537ff224a
+source=("git+https://github.com/OHF-Voice/piper1-gpl.git#tag=v${pkgver}"
+        "espeak-ng::git+https://github.com/espeak-ng/espeak-ng.git#commit=${_espeak}")
+sha256sums=('70d062c1e80b0967b311f53e6036d9c78e146a6065d7444f3cec4a2fe85d2ea5'
+            'SKIP')
+
+prepare() {
+  cd "${_pkgname}"
+  # pip would fetch cmake and ninja wheels; Arch's are in makedepends.
+  sed -i 's/"cmake", "ninja"//' pyproject.toml
+  # espeak-ng from source=(), at the commit upstream names.
+  grep -q 'GIT_TAG 724808c' CMakeLists.txt
+  sed -i -e "s|GIT_REPOSITORY https://github.com/espeak-ng/espeak-ng.git|SOURCE_DIR ${srcdir}/espeak-ng|" \
+         -e '/GIT_TAG 724808c/d' \
+         -e "s|\${ESPEAKNG_BUILD_DIR}/src/espeak_ng_external/src/ucd-tools|${srcdir}/espeak-ng/src/ucd-tools|g" \
+         CMakeLists.txt
+}
+
+build() {
+  cd "${_pkgname}"
+  export http_proxy=http://127.0.0.1:9 https_proxy=http://127.0.0.1:9 \
+         HTTP_PROXY=http://127.0.0.1:9 HTTPS_PROXY=http://127.0.0.1:9 ALL_PROXY=http://127.0.0.1:9
+  python -m build --wheel --no-isolation
+}
+
+package() {
+  cd "${_pkgname}"
+  python -m installer --destdir="$pkgdir" dist/*.whl
+  rm "$pkgdir"/usr/bin/piper
+  rmdir "$pkgdir"/usr/bin
+}
