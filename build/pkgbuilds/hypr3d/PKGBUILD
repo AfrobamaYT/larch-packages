@@ -1,0 +1,63 @@
+# Hypr3D, a Hyprland plugin that turns the session into a walkable 3D room
+# (samine825/Hypr3D, MIT), from Larch's fork AfrobamaYT/Hypr3D, branch
+# larch/main: upstream d0be2e0 plus three fixes, each measured red then green
+# in the dev VM -- built with -fno-gnu-unique, so an unloaded plugin can be
+# loaded again without crashing Hyprland (7069d1e); new windows side by side
+# on an arc instead of one in front of the other (1bfdbd3); its pass element
+# taken out of Hyprland's render pass on unload, which crashed Hyprland when
+# the room was shown (d681e3b); since then scene models read, decoded and
+# cooked into Jolt shapes on worker threads, which took a 47 MB model's
+# 391 + 466 ms freeze of the whole desktop down to 53-67 ms (bb4277a,
+# 6d040e3, 46e28a4); the aim ray by a slab test, 995 -> 1.3 us (54e1cb5);
+# embedded JPEG textures through libjpeg-turbo, which were black (3656ac7).
+# Larch carries the plugin alone: the one .so and the
+# licences of what is compiled into it. No scene, no player model, no
+# panorama -- the upstream tree ships none either; the room is the plugin's
+# built-in 40x40 grid floor until somebody points the config at a .glb.
+# The screenshots, Jolt's sample assets and documentation in the source
+# archive stay out.
+#
+# Built against the installed Hyprland's headers. The plugin compares
+# Hyprland's build hash with its own in PLUGIN_INIT and refuses to load on a
+# mismatch; larch-3d puts that refusal on screen. Not pinned to one hyprland
+# version in depends: [larch] does not build Hyprland, so a pin would stop
+# every -Syu from the day Arch moves Hyprland until this is rebuilt.
+
+pkgname=hypr3d
+_commit=3656ac75d05219a6b80a70cd15cb735894f5b903
+pkgver=0.5.0.r67.g3656ac7
+pkgrel=1
+pkgdesc='Hyprland plugin: the session as a walkable 3D room'
+arch=(x86_64)
+url='https://github.com/samine825/Hypr3D'
+license=(MIT)
+depends=(hyprland
+         hyprgraphics
+         libdrm
+         libjpeg-turbo
+         libglvnd
+         libxkbcommon
+         pixman
+         libgcc
+         libstdc++
+         glibc)
+makedepends=(cmake
+             pkgconf)
+_fork=https://github.com/AfrobamaYT/Hypr3D
+source=("$pkgname-$_commit.tar.gz::$_fork/archive/$_commit.tar.gz")
+sha256sums=('499e9afecd8d080b10c0b2e32bdbd0b9db2bcb5ce895437b9d08753092eb4916')
+
+build() {
+	cd "Hypr3D-$_commit"
+	cmake -S . -B build \
+		-D CMAKE_BUILD_TYPE=None \
+		-D HYPRLAND_HEADERS=/usr
+	cmake --build build
+}
+
+package() {
+	cd "Hypr3D-$_commit"
+	install -Dm0755 build/hypr3d.so "$pkgdir/usr/lib/hyprland/hypr3d.so"
+	install -Dm0644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+	install -Dm0644 third_party/Jolt/LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE.Jolt"
+}

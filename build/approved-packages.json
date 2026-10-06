@@ -539,6 +539,13 @@
       "recipe_commit": "dffb1805c53bfccaedf8be9dfdd880628eda8de8",
       "reviewed_by": "Larch security review",
       "reviewed_at": "2026-10-04"
+    },
+    "hypr3d-0.5.0.r67.g3656ac7-1-x86_64.pkg.tar.zst": {
+      "sha256": "7b00e5f1605593ca2d537c5199d912e73e2f5bb2cfbc21251186cd0b4535c107",
+      "source": "https://github.com/AfrobamaYT/Hypr3D/archive/3656ac75d05219a6b80a70cd15cb735894f5b903.tar.gz",
+      "recipe_commit": "61fe0f84d02a801de623f6769ce3e3cbcee624e7",
+      "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
+      "reviewed_at": "2026-10-06"
     }
   }
 }
