@@ -9,7 +9,11 @@
 # cooked into Jolt shapes on worker threads, which took a 47 MB model's
 # 391 + 466 ms freeze of the whole desktop down to 53-67 ms (bb4277a,
 # 6d040e3, 46e28a4); the aim ray by a slab test, 995 -> 1.3 us (54e1cb5);
-# embedded JPEG textures through libjpeg-turbo, which were black (3656ac7).
+# embedded JPEG textures through libjpeg-turbo, which were black (3656ac7);
+# one room across every monitor -- each monitor its own off-axis window of
+# one view plane, the desktop's windows a wall where they stood (b04b8ba,
+# e078c40, world.span, default on); layer surfaces on a monitor away from
+# the layout's origin, which came out blank (a4849b7).
 # Larch carries the plugin alone: the one .so and the
 # licences of what is compiled into it. No scene, no player model, no
 # panorama -- the upstream tree ships none either; the room is the plugin's
@@ -24,8 +28,8 @@
 # every -Syu from the day Arch moves Hyprland until this is rebuilt.
 
 pkgname=hypr3d
-_commit=3656ac75d05219a6b80a70cd15cb735894f5b903
-pkgver=0.5.0.r67.g3656ac7
+_commit=e078c4006f181182f62edaad13c3d73b2e98cab0
+pkgver=0.5.0.r70.ge078c40
 pkgrel=1
 pkgdesc='Hyprland plugin: the session as a walkable 3D room'
 arch=(x86_64)
@@ -45,7 +49,7 @@ makedepends=(cmake
              pkgconf)
 _fork=https://github.com/AfrobamaYT/Hypr3D
 source=("$pkgname-$_commit.tar.gz::$_fork/archive/$_commit.tar.gz")
-sha256sums=('499e9afecd8d080b10c0b2e32bdbd0b9db2bcb5ce895437b9d08753092eb4916')
+sha256sums=('a7f97cf27896ba53ecb488b27c578281b6a9f378de0d66c02f668c6231f075eb')
 
 build() {
 	cd "Hypr3D-$_commit"
