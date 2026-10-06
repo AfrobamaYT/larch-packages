@@ -13,7 +13,10 @@
 # one room across every monitor -- each monitor its own off-axis window of
 # one view plane, the desktop's windows a wall where they stood (b04b8ba,
 # e078c40, world.span, default on); layer surfaces on a monitor away from
-# the layout's origin, which came out blank (a4849b7).
+# the layout's origin, which came out blank (a4849b7); leaving the room keeps
+# it as it was -- where you stood and looked, the view and every window's
+# place -- where entering started over at the default view with every window
+# laid out afresh (371300b; hl.plugin.hypr3d.reset() starts over).
 # Larch carries the plugin alone: the one .so and the
 # licences of what is compiled into it. No scene, no player model, no
 # panorama -- the upstream tree ships none either; the room is the plugin's
@@ -28,8 +31,8 @@
 # every -Syu from the day Arch moves Hyprland until this is rebuilt.
 
 pkgname=hypr3d
-_commit=e078c4006f181182f62edaad13c3d73b2e98cab0
-pkgver=0.5.0.r70.ge078c40
+_commit=371300bc10e6d43eaf34894c9738ca0ddb970846
+pkgver=0.5.0.r71.g371300b
 pkgrel=1
 pkgdesc='Hyprland plugin: the session as a walkable 3D room'
 arch=(x86_64)
@@ -49,7 +52,7 @@ makedepends=(cmake
              pkgconf)
 _fork=https://github.com/AfrobamaYT/Hypr3D
 source=("$pkgname-$_commit.tar.gz::$_fork/archive/$_commit.tar.gz")
-sha256sums=('a7f97cf27896ba53ecb488b27c578281b6a9f378de0d66c02f668c6231f075eb')
+sha256sums=('8d24d43d7d94abab9f148bca6458974028dcf8769744589f9a7ddc30d1f06e2b')
 
 build() {
 	cd "Hypr3D-$_commit"
