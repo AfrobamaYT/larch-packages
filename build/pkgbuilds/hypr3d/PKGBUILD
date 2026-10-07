@@ -21,7 +21,17 @@
 # player, the spawn or a window and turns to face one, with its events on
 # socket2 -- the room side of the AI teammate, steered by
 # larch-room-bridge; it appears only once something calls it (9f3fc76,
-# 8c1c758).
+# 8c1c758); a focus lock that keeps the keyboard on a window, F6 (ee97ab1);
+# movement with weight -- Quake's ground friction and acceleration, a jump
+# with coyote time and a buffer, Space twice to fly, world.gravity (8e070c6);
+# the companion's eye, companion("see"), one picture of the room as a JPEG
+# beside Hyprland's sockets and a sight event (971cbc7); windows that write
+# no depth, so a lone window coplanar with a rice's screen-sized layer stays
+# visible (295a5ff); mipmaps, anisotropic filtering and a -0.5 LOD bias for
+# window snapshots, so text stays legible from afar (860c2f3); a locked
+# session closes the room and keeps it closed -- it drew every window over
+# the lock screen (4913b46); F2 brings the aimed window to the eye at 1:1
+# and back (9e3ae98, 90a21d9).
 # Larch carries the plugin alone: the one .so and the
 # licences of what is compiled into it. No scene, no player model, no
 # panorama -- the upstream tree ships none either; the room is the plugin's
@@ -36,8 +46,8 @@
 # every -Syu from the day Arch moves Hyprland until this is rebuilt.
 
 pkgname=hypr3d
-_commit=8c1c758ad51611c97575e32782abc629de6d15f7
-pkgver=0.5.0.r73.g8c1c758
+_commit=90a21d94300c21ab593746ae60f40c01ab32c148
+pkgver=0.5.0.r82.g90a21d9
 pkgrel=1
 pkgdesc='Hyprland plugin: the session as a walkable 3D room'
 arch=(x86_64)
@@ -57,7 +67,7 @@ makedepends=(cmake
              pkgconf)
 _fork=https://github.com/AfrobamaYT/Hypr3D
 source=("$pkgname-$_commit.tar.gz::$_fork/archive/$_commit.tar.gz")
-sha256sums=('7cf9c1dac722d6629507e0375d769dab5c4305bc74fb1782ab873f6fc4400c74')
+sha256sums=('9ef77822cac711ab12f3c81e6d18f72f7db78885c366d4be78da2fe26787f21c')
 
 build() {
 	cd "Hypr3D-$_commit"
