@@ -540,10 +540,10 @@
       "reviewed_by": "Larch security review",
       "reviewed_at": "2026-10-04"
     },
-    "hypr3d-0.5.0.r82.g90a21d9-1-x86_64.pkg.tar.zst": {
-      "sha256": "8e9a25d939343f310b6da9ca59fc46fe59374786065a77deb822c8460c5fbd6d",
-      "source": "https://github.com/AfrobamaYT/Hypr3D/archive/90a21d94300c21ab593746ae60f40c01ab32c148.tar.gz",
-      "recipe_commit": "e6b8a3b6e59a676535b1d71447f57338e6f9bfd7",
+    "hypr3d-0.5.0.r84.g61bda92-1-x86_64.pkg.tar.zst": {
+      "sha256": "a92de55c8617c3757c0b90b53516b0cf233a5f21f0a641e3a64518950461c426",
+      "source": "https://github.com/AfrobamaYT/Hypr3D/archive/61bda92fc6107f8d277ef98bedddccc499195cf7.tar.gz",
+      "recipe_commit": "f727e5454335fba51d3674ff393c5bc048c6d99c",
       "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
       "reviewed_at": "2026-10-07"
     }
