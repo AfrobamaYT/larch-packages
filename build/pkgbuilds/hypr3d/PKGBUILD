@@ -34,7 +34,9 @@
 # and back (9e3ae98, 90a21d9); the scene reaches the screen pixel for pixel
 # -- the composite flipped v in 16-bit floats and smeared every horizontal
 # edge (c3e6d81); F4, the cinema: the window as big as the view, the room
-# dark around it (61bda92).
+# dark around it (61bda92); portals, a picture in the room that starts its
+# command when walked into (e9e2b4a); F1 runs the room's menu and brings
+# its window to the eye (6d9ea79).
 # Larch carries the plugin alone: the one .so and the
 # licences of what is compiled into it. No scene, no player model, no
 # panorama -- the upstream tree ships none either; the room is the plugin's
@@ -49,8 +51,8 @@
 # every -Syu from the day Arch moves Hyprland until this is rebuilt.
 
 pkgname=hypr3d
-_commit=61bda92fc6107f8d277ef98bedddccc499195cf7
-pkgver=0.5.0.r84.g61bda92
+_commit=6d9ea796c8667916ca5595ecc308fedb686f5203
+pkgver=0.5.0.r86.g6d9ea79
 pkgrel=1
 pkgdesc='Hyprland plugin: the session as a walkable 3D room'
 arch=(x86_64)
@@ -70,7 +72,7 @@ makedepends=(cmake
              pkgconf)
 _fork=https://github.com/AfrobamaYT/Hypr3D
 source=("$pkgname-$_commit.tar.gz::$_fork/archive/$_commit.tar.gz")
-sha256sums=('5455ebc13b469dbb6835a78b9eeeb28f879034e40a959ed3fe18ce0bde7ca762')
+sha256sums=('142a25915d52d0fa21a666674d3a07072a8abde7d6674613ce2599fd6c8c0f1b')
 
 build() {
 	cd "Hypr3D-$_commit"
