@@ -16,7 +16,12 @@
 # the layout's origin, which came out blank (a4849b7); leaving the room keeps
 # it as it was -- where you stood and looked, the view and every window's
 # place -- where entering started over at the default view with every window
-# laid out afresh (371300b; hl.plugin.hypr3d.reset() starts over).
+# laid out afresh (371300b; hl.plugin.hypr3d.reset() starts over); a second
+# avatar, the companion, that hl.plugin.hypr3d.companion() walks to the
+# player, the spawn or a window and turns to face one, with its events on
+# socket2 -- the room side of the AI teammate, steered by
+# larch-room-bridge; it appears only once something calls it (9f3fc76,
+# 8c1c758).
 # Larch carries the plugin alone: the one .so and the
 # licences of what is compiled into it. No scene, no player model, no
 # panorama -- the upstream tree ships none either; the room is the plugin's
@@ -31,8 +36,8 @@
 # every -Syu from the day Arch moves Hyprland until this is rebuilt.
 
 pkgname=hypr3d
-_commit=371300bc10e6d43eaf34894c9738ca0ddb970846
-pkgver=0.5.0.r71.g371300b
+_commit=8c1c758ad51611c97575e32782abc629de6d15f7
+pkgver=0.5.0.r73.g8c1c758
 pkgrel=1
 pkgdesc='Hyprland plugin: the session as a walkable 3D room'
 arch=(x86_64)
@@ -52,7 +57,7 @@ makedepends=(cmake
              pkgconf)
 _fork=https://github.com/AfrobamaYT/Hypr3D
 source=("$pkgname-$_commit.tar.gz::$_fork/archive/$_commit.tar.gz")
-sha256sums=('8d24d43d7d94abab9f148bca6458974028dcf8769744589f9a7ddc30d1f06e2b')
+sha256sums=('7cf9c1dac722d6629507e0375d769dab5c4305bc74fb1782ab873f6fc4400c74')
 
 build() {
 	cd "Hypr3D-$_commit"
