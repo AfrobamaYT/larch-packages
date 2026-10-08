@@ -70,7 +70,9 @@
 # the portal started (21cd50b, 75a6714); and windows("reset"/"undo"), the
 # room's state for its menu, the menu and Super+F used from the start
 # (c20ebc2, d160a33, 2a0fc09, 03babe6, 18e9916). The labels and panels
-# are drawn with Cairo and Pango.
+# are drawn with Cairo and Pango. Jolt's debug asserts stay out of this
+# build (CMAKE_BUILD_TYPE=None set no NDEBUG, so every earlier package had
+# them, each an int3): one trapped Hyprland while walking (91cbab6).
 # Larch carries the plugin alone: the one .so and the
 # licences of what is compiled into it. No scene, no player model, no
 # panorama -- the upstream tree ships none either; the room is the plugin's
@@ -85,8 +87,8 @@
 # every -Syu from the day Arch moves Hyprland until this is rebuilt.
 
 pkgname=hypr3d
-_commit=75a67143450259ff2f3e3f9b18e52923ce8833be
-pkgver=0.5.0.r119.g75a6714
+_commit=91cbab6ee6ad064d1142a505e05e6a3ccfe0bed5
+pkgver=0.5.0.r120.g91cbab6
 pkgrel=1
 pkgdesc='Hyprland plugin: the session as a walkable 3D room'
 arch=(x86_64)
@@ -108,7 +110,7 @@ makedepends=(cmake
              pkgconf)
 _fork=https://github.com/AfrobamaYT/Hypr3D
 source=("$pkgname-$_commit.tar.gz::$_fork/archive/$_commit.tar.gz")
-sha256sums=('6bdfcfbd5df3752da6423e0aa589fed172966835363729c8e0c7834d737b0309')
+sha256sums=('956548921f3579300b5ecf34ff7618fd5b098076aa5541c3889a04ee5d5aa5e8')
 
 build() {
 	cd "Hypr3D-$_commit"
