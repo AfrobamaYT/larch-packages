@@ -58,7 +58,19 @@
 # floating (82ed203); Super+F in the room is a screen in front of the
 # player with the room around it, used like a monitor -- mouse and keys
 # on the window -- and a key's release goes where its press went, which
-# had opened caelestia's launcher over it (c1f3ec4).
+# had opened caelestia's launcher over it (c1f3ec4); the room's look after
+# the owner's approved Claude Design drafts -- a crosshair whose shape says
+# what it points at with a label of its name and keys, Larch's pointer on a
+# window in use, F3 as a panel, the bin's crumpled paper ball and its note
+# (19bb9a6, 4fad617, 182a229, 8867914, d2b744a), F2, Super+F and the F1
+# menu on the drafts' curves with the room dimmed and, behind the menu,
+# blurred (f49bb34, fc2cf50), the windows lifting off their 2D tiles into
+# the room and back (72fdd43), portals as lit doors with a plate, gone
+# through into the game's cover and a starting panel fed by the program
+# the portal started (21cd50b, 75a6714); and windows("reset"/"undo"), the
+# room's state for its menu, the menu and Super+F used from the start
+# (c20ebc2, d160a33, 2a0fc09, 03babe6, 18e9916). The labels and panels
+# are drawn with Cairo and Pango.
 # Larch carries the plugin alone: the one .so and the
 # licences of what is compiled into it. No scene, no player model, no
 # panorama -- the upstream tree ships none either; the room is the plugin's
@@ -73,8 +85,8 @@
 # every -Syu from the day Arch moves Hyprland until this is rebuilt.
 
 pkgname=hypr3d
-_commit=c1f3ec494feff007738493fc249dc6500460cd8f
-pkgver=0.5.0.r103.gc1f3ec4
+_commit=75a67143450259ff2f3e3f9b18e52923ce8833be
+pkgver=0.5.0.r119.g75a6714
 pkgrel=1
 pkgdesc='Hyprland plugin: the session as a walkable 3D room'
 arch=(x86_64)
@@ -82,6 +94,8 @@ url='https://github.com/samine825/Hypr3D'
 license=(MIT)
 depends=(hyprland
          hyprgraphics
+         cairo
+         pango
          libdrm
          libjpeg-turbo
          libglvnd
@@ -94,7 +108,7 @@ makedepends=(cmake
              pkgconf)
 _fork=https://github.com/AfrobamaYT/Hypr3D
 source=("$pkgname-$_commit.tar.gz::$_fork/archive/$_commit.tar.gz")
-sha256sums=('2eb2ab68cad7a1679fadcd338e46cca9b6682714b3e7940668ea5c90173ada80')
+sha256sums=('6bdfcfbd5df3752da6423e0aa589fed172966835363729c8e0c7834d737b0309')
 
 build() {
 	cd "Hypr3D-$_commit"
