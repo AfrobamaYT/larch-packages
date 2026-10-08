@@ -141,12 +141,12 @@
       "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
       "reviewed_at": "2026-09-30"
     },
-    "qtengine-0.2.2-1-x86_64.pkg.tar.zst": {
-      "sha256": "a7c64974a045d852007a3f0a6c362803c30a6f6dc7a21d3f6053d404f69be588",
+    "qtengine-0.2.2-2-x86_64.pkg.tar.zst": {
+      "sha256": "b394d38bb5742cd40153a0adaa8b9081d2f2c2d673856e70b5ce37b4eead7e0a",
       "source": "https://github.com/kossLAN/qtengine/commit/167e7d9a27cdc8005ef2bd4d5d317b9da01b853f",
-      "recipe_commit": "82b229d6ce99c94cf73a3bb95e2f20b3cb295643",
+      "recipe_commit": "ead0a386a81579f00c5f0ec9e42f0c510199cb48",
       "reviewed_by": "Claude Opus 5.5 (automated defensive review)",
-      "reviewed_at": "2026-09-30"
+      "reviewed_at": "2026-10-08"
     },
     "waypaper-2.9-1-any.pkg.tar.zst": {
       "sha256": "055304bf6f1045a82c2fe5e268c29573185b2e41ee61969c91c51d0d83e7a433",
