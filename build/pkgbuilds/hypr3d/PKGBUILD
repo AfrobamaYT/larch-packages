@@ -78,7 +78,8 @@
 # window by where the crosshair points (5617153). A game fullscreen before
 # a visit to the room is fullscreen again after it (205fe59), and a window
 # hidden by its app while the room is open no longer crashes Hyprland as the
-# room is left (db07af5).
+# room is left (db07af5). Snapshots live in textures of their own size,
+# mipmapped there, so walking keeps the monitor's frame rate (632a523).
 # Larch carries the plugin alone: the one .so and the
 # licences of what is compiled into it. No scene, no player model, no
 # panorama -- the upstream tree ships none either; the room is the plugin's
@@ -93,8 +94,8 @@
 # every -Syu from the day Arch moves Hyprland until this is rebuilt.
 
 pkgname=hypr3d
-_commit=db07af507a55874a2a69bfa3f4c6cdd68374ca06
-pkgver=0.5.0.r123.gdb07af5
+_commit=632a5230ef8d11ac2c7f6646aa9354656339b197
+pkgver=0.5.0.r124.g632a523
 pkgrel=1
 pkgdesc='Hyprland plugin: the session as a walkable 3D room'
 arch=(x86_64)
@@ -116,7 +117,7 @@ makedepends=(cmake
              pkgconf)
 _fork=https://github.com/AfrobamaYT/Hypr3D
 source=("$pkgname-$_commit.tar.gz::$_fork/archive/$_commit.tar.gz")
-sha256sums=('0db9a0e3506e9d4017b121b5caa79a14499b2120ba4360b3dbf6fd7c428bccfb')
+sha256sums=('77e6b5312925cdd3ac530b4c871d85b3b3bcef6eabf7a09da953a17c62c935da')
 
 build() {
 	cd "Hypr3D-$_commit"
