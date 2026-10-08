@@ -48,7 +48,9 @@
 # and pictures put into the room at runtime (fb17cff); head tracking from
 # opentrack, off by default (ddf5d6a); a TV zone a window is put on, scaled
 # there with Super+wheel, and F8 to use any window with the mouse (299bd37);
-# materials with only a colour drawn in it instead of black (99cea05).
+# materials with only a colour drawn in it instead of black (99cea05); the
+# view stays on the monitor the room was opened from -- aiming at a window
+# laid out on another monitor moved the whole view there (31512ed).
 # Larch carries the plugin alone: the one .so and the
 # licences of what is compiled into it. No scene, no player model, no
 # panorama -- the upstream tree ships none either; the room is the plugin's
@@ -63,8 +65,8 @@
 # every -Syu from the day Arch moves Hyprland until this is rebuilt.
 
 pkgname=hypr3d
-_commit=99cea05031a61deef408b07bc619675eb46a5235
-pkgver=0.5.0.r99.g99cea05
+_commit=31512edcb77d1f7efeaf854925d904ecba2ffd9f
+pkgver=0.5.0.r100.g31512ed
 pkgrel=1
 pkgdesc='Hyprland plugin: the session as a walkable 3D room'
 arch=(x86_64)
@@ -84,7 +86,7 @@ makedepends=(cmake
              pkgconf)
 _fork=https://github.com/AfrobamaYT/Hypr3D
 source=("$pkgname-$_commit.tar.gz::$_fork/archive/$_commit.tar.gz")
-sha256sums=('8ac241d7c17f58d29dde33457f43ad2cc2be28c1be0e63dc751ed11f1e5aad1f')
+sha256sums=('55c169f76eb5504204dffd150cc17d9ccbce262c51276a05f73f5a6d7a1a9c13')
 
 build() {
 	cd "Hypr3D-$_commit"
